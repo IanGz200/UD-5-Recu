@@ -27,6 +27,13 @@
                     </a>
                 </li>
             </ul>
+            <?php foreach (new DirectoryIterator($_ENV['folder.views']) as $fileInfo) {
+                if ($fileInfo->isFile()) {
+                    echo $fileInfo->getFilename();
+                }
+            }
+
+            ?>
         </li>
     </ul>
 </nav>
