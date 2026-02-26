@@ -25,6 +25,15 @@ class FrontController
             );
 
             Route::add(
+                '/ejecicio1',
+                function () {
+                    $controlador = new InicioController();
+                    $controlador->index();
+                },
+                'get'
+            );
+
+            Route::add(
                 '/demo-proveedores',
                 function () {
                     $controlador = new InicioController();

@@ -28,8 +28,19 @@
                 </li>
             </ul>
             <?php foreach (new DirectoryIterator($_ENV['folder.views']) as $fileInfo) {
-                if ($fileInfo->isFile()) {
-                    echo $fileInfo->getFilename();
+                if ($fileInfo->isFile() and $fileInfo->getFilename() != 'error.php' and $fileInfo->getFilename() != 'inicio.view.php' and $fileInfo->getFilename() != 'proveedores.sample.php') {
+                    ?>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?php echo $_ENV['host.folder'] . preg_replace('/\..*/', '', $fileInfo->getFilename())?>" class="nav-link <?php echo $seccion === $_ENV['host.folder'] . preg_replace('/\..*/', '', $fileInfo->getFilename()) ? 'active' : ''; ?>">
+                                <i class="fas fa-laptop-code nav-icon"></i>
+                                <?php
+                                echo "<p>" . ucfirst(preg_replace('/\..*/', '', $fileInfo->getFilename())) . "</p>";
+                                ?>
+                            </a>
+                        </li>
+                    </ul>
+                    <?php
                 }
             }
 
