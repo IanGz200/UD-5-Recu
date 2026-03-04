@@ -12,15 +12,11 @@ class Ejercicio1Model extends BaseDbModel
     {
         $errors = [];
 
-        if (!is_array(json_decode($json))) {
-            $errors['json'] = 'Introduce un formato de json correcto';
-        }
-
         return $errors;
     }
 
     public function getNotas($json): array
     {
-        return json_decode($json);
+        return [];
     }
 }

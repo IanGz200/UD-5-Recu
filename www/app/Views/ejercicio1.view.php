@@ -19,8 +19,8 @@ declare(strict_types=1);
                     <div class="row">
                         <div class="col-12 ">
                             <div class="mb-3">
-                                <label for="texto">Texto JSON:</label>
-                                <input type="text" class="form-control" name="texto" id="texto" value=""/>
+                                <label for="texto_json">Texto JSON:</label>
+                                <input type="text" class="form-control" name="texto_json" id="texto_json" value=""/>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ declare(strict_types=1);
                     <div class="row">
                         <div class="col-12">
                                     <?php foreach ($errors as $error) { ?>
-                                        <p class="text-danger"><?php echo $error?></p>
+                                        <p class="text-danger"><?php echo 'a'?></p>
                                         <?php
                                     }?>
                         </div>

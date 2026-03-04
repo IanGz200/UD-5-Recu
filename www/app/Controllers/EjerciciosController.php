@@ -29,10 +29,10 @@ class EjerciciosController extends BaseController
     {
         $model = new Ejercicio1Model();
         $asig = [];
-        $errors = $model->checkErrors($_POST['texto']);
+        $errors = $model->checkErrors($_POST['texto_json']);
 
         if ($errors = []) {
-            $asig = $model->getNotas($_POST['texto']);
+            $asig = $model->getNotas($_POST['texto_json']);
         }
 
         $data =
