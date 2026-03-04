@@ -2,6 +2,7 @@
 
 namespace Com\Daw2\Core;
 
+use Com\Daw2\Controllers\EjerciciosController;
 use Com\Daw2\Controllers\ErroresController;
 use Com\Daw2\Controllers\InicioController;
 use Com\Daw2\Controllers\ProveedoresController;
@@ -25,10 +26,27 @@ class FrontController
             );
 
             Route::add(
-                '/ejecicio1',
+                '/ejercicio1',
                 function () {
-                    $controlador = new InicioController();
-                    $controlador->index();
+                    $controlador = new EjerciciosController();
+                    $controlador->ejercicio1();
+                },
+                'get'
+            );
+            Route::add(
+                '/ejercicio1',
+                function () {
+                    $controlador = new EjerciciosController();
+                    $controlador->getNotas();
+                },
+                'post'
+            );
+
+            Route::add(
+                '/ejercicio2',
+                function () {
+                    $controlador = new EjerciciosController();
+                    $controlador->ejercicio2();
                 },
                 'get'
             );
