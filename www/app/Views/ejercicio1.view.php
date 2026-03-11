@@ -24,11 +24,11 @@ declare(strict_types=1);
                             </div>
                         </div>
                     </div>
-                    <?php if ($errors != []) {?>
+                    <?php if ($errores != []) {?>
                     <div class="row">
                         <div class="col-12">
-                                    <?php foreach ($errors as $error) { ?>
-                                        <p class="text-danger"><?php echo 'a'?></p>
+                                    <?php foreach ($errores as $error) { ?>
+                                        <p class="text-danger"><?php echo $error?></p>
                                         <?php
                                     }?>
                         </div>
@@ -62,21 +62,25 @@ declare(strict_types=1);
                             <th><a href="/ejercicio1?order=2">Media</a></th>
                             <th><a href="/ejercicio1?order=3">Suspensos</a></th>
                             <th><a href="/ejercicio1?order=4">Aprobados</a></th>
+                            <th><a href="/ejercicio1?order=5">Alumno Max</a></th>
                             <th><a href="/ejercicio1?order=5">Max</a></th>
+                            <th><a href="/ejercicio1?order=5">Alumno Min</a></th>
                             <th><a href="/ejercicio1?order=5">Min</a></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($asignaturas as $asig) {
+                        foreach ($asignaturas as $key => $asig) {
                             ?>
                             <tr class="">
-                                <td><?php echo $asig['nombre'] ?></td>
+                                <td><?php echo $key ?></td>
                                 <td><?php echo $asig['media'] ?></td>
                                 <td><?php echo $asig['suspensos'] ?></td>
                                 <td><?php echo $asig['aprobados'] ?></td>
-                                <td><?php echo $asig['nota_max'] ?></td>
-                                <td><?php echo $asig['nota_min'] ?></td>
+                                <td><?php echo $asig['max']['alumno'] ?></td>
+                                <td><?php echo $asig['max']['nota'] ?></td>
+                                <td><?php echo $asig['min']['alumno'] ?></td>
+                                <td><?php echo $asig['min']['nota'] ?></td>
                             </tr>
                             <?php
                         }

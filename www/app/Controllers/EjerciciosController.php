@@ -14,7 +14,10 @@ class EjerciciosController extends BaseController
         $data = array(
             'titulo' => 'Ejercicio 1',
             'breadcrumb' => ['Inicio, Ejercicio 1'],
+            'errores' => [],
+            'asignaturas' => []
         );
+
         $this->view->showViews(
             array(
                 'templates/header.view.php',
@@ -31,7 +34,7 @@ class EjerciciosController extends BaseController
         $asig = [];
         $errors = $model->checkErrors($_POST['texto_json']);
 
-        if ($errors = []) {
+        if ($errors == []) {
             $asig = $model->getNotas($_POST['texto_json']);
         }
 
@@ -57,13 +60,13 @@ class EjerciciosController extends BaseController
     public function ejercicio2(): void
     {
         $data = array(
-            'titulo' => 'Ejercicio 1',
-            'breadcrumb' => ['Inicio, Ejercicio 1']
+            'titulo' => 'Ejercicio 2',
+            'breadcrumb' => ['Inicio, Ejercicio 2']
         );
         $this->view->showViews(
             array(
                 'templates/header.view.php',
-                'ejercicio1.view.php',
+                'ejercicio2.view.php',
                 'templates/footer.view.php'
             ),
             $data
