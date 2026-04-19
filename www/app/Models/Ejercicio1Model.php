@@ -14,6 +14,8 @@ class Ejercicio1Model extends BaseDbModel
 
         $decoded = json_decode($json, true);
 
+        var_dump($decoded);
+
         if (!is_array($decoded)) {
             $errors['formato'] = 'El json no contiene un formato válido';
         } elseif ($decoded == []) {

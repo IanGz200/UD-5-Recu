@@ -32,10 +32,10 @@ class EjerciciosController extends BaseController
     {
         $model = new Ejercicio1Model();
         $asig = [];
-        $errors = $model->checkErrors($_POST['texto_json']);
+        $errors = $model->checkErrors(filter_var($_POST['texto_json'], FILTER_SANITIZE_SPECIAL_CHARS));
 
         if ($errors == []) {
-            $asig = $model->getNotas($_POST['texto_json']);
+            $asig = $model->getNotas(filter_var($_POST['texto_json'], FILTER_SANITIZE_SPECIAL_CHARS));
         }
 
         $data =

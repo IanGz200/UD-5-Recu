@@ -2,6 +2,7 @@
 
 namespace Com\Daw2\Core;
 
+use Com\Daw2\Controllers\Decision4Controller;
 use Com\Daw2\Controllers\EjerciciosController;
 use Com\Daw2\Controllers\ErroresController;
 use Com\Daw2\Controllers\InicioController;
@@ -49,6 +50,24 @@ class FrontController
                     $controlador->ejercicio2();
                 },
                 'get'
+            );
+
+            Route::add(
+                '/decision4',
+                function () {
+                    $controlador = new Decision4Controller();
+                    $controlador->calculoBisiesto();
+                },
+                'get'
+            );
+
+            Route::add(
+                '/decision4',
+                function () {
+                    $controlador = new Decision4Controller();
+                    $controlador->calculoBisiesto();
+                },
+                'post'
             );
 
             Route::add(

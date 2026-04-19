@@ -24,7 +24,7 @@ declare(strict_types=1);
                             </div>
                         </div>
                     </div>
-                    <?php if ($errores != []) {?>
+                    <?php if (isset($errores) and $errores != []) {?>
                     <div class="row">
                         <div class="col-12">
                                     <?php foreach ($errores as $error) { ?>
@@ -44,8 +44,8 @@ declare(strict_types=1);
             </form>
         </div>
     </div>
-    <?php if ($asignaturas != null) {
-    ?>
+    <?php if (isset($asignaturas)) {
+        ?>
     <div class="col-12">
         <div class="card shadow mb-4">
             <div
@@ -93,6 +93,52 @@ declare(strict_types=1);
             </div>
         </div>
     </div>
+        <?php
+    } ?>
+    <?php if (isset($alumnos)) {
+        ?>
+        <div class="col-12">
+            <div class="card shadow mb-4">
+                <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body" id="card_table">
+                    <!-- Table -->
+                    <table id="tabladatos" class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th><a href="/ejercicio1?order=1">Nombre</a></th>
+                            <th><a href="/ejercicio1?order=2">Suspensos</a></th>
+                            <th><a href="/ejercicio1?order=3">Promociona</a></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach ($asignaturas as $key => $asig) {
+                            ?>
+                            <tr class="">
+                                <td><?php echo $key ?></td>
+                                <td><?php echo $asig['media'] ?></td>
+                                <td><?php echo $asig['suspensos'] ?></td>
+                                <td><?php echo $asig['aprobados'] ?></td>
+                                <td><?php echo $asig['max']['alumno'] ?></td>
+                                <td><?php echo $asig['max']['nota'] ?></td>
+                                <td><?php echo $asig['min']['alumno'] ?></td>
+                                <td><?php echo $asig['min']['nota'] ?></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <!-- Pagination -->
+                </div>
+            </div>
+        </div>
         <?php
     } ?>
 </div>
